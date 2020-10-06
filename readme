@@ -1,0 +1,11 @@
+This project is created by Subhan (sa287), Stephane (StephaneT257) and Joe (Joechiverton). It is an arena-based, top-down fighting game wherein user's can drop in at any time and be a part of the action.
+The front-end will be done by Stephane and Joe, the back-end Subhan. It will be done using Node.js, JavaScript, HTML and CSS.
+
+The objectives will be eventually split up into the different facets of the project, however, at the start/end we will be working as a collective to plan/design and eventually test it.
+These objectives will also be based upon the coursework guidelines.
+
+- Game details, github setups, programming practises and testing plan are to be done by 12/10/2020
+- Client-side mechanics and serverside management shall be started at the 12/10/2020 and then be done by 22/10/2020
+- Testing, making sure data management is correct and working on a deployment plan will be done by 29/10/2020
+- Security and analyses for weaknesses in the project will conclude the project at 1/11/2020.
+             
