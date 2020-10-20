@@ -8,12 +8,27 @@ public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1584062872388647616L;
 	
 	public static final int WIDTH = 640, HEIGHT =  WIDTH / 12 * 9;
+	
 	private Thread thread;
 	private boolean running = false;
 	
+	private Random r;
+	private Handler handler;
+	
 	public Game() {
 		new Window(WIDTH, HEIGHT, "Porty Beach", this);
+		
+		handler = new Handler();
+		r = new Random();
+		
+		for (int i = 0; i < 50; i++){
+			handler.addObject(new Player(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.Player));
+			
+		}
+		
 	}
+		
+		
 	
 	public synchronized void start() {
 		thread = new Thread(this);
@@ -61,7 +76,7 @@ public class Game extends Canvas implements Runnable {
     }
     
     private void tick() {
-    	
+    	handler.tick();
     }
     
     private void render() {
@@ -75,6 +90,8 @@ public class Game extends Canvas implements Runnable {
     	
     	g.setColor(Color.black);
     	g.fillRect(0,  0, WIDTH, HEIGHT);
+	    
+	handler.render(g);
     	
     	g.dispose();
     	bs.show();
