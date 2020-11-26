@@ -266,3 +266,4 @@ function init(){
     }
 }
 document.getElementById("newGame").onclick = init;
+
