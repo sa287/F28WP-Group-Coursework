@@ -1,8 +1,11 @@
+<!-- Body below sets a background colour -->
 body {
     margin:0;
     padding:0;
     background:#888;
 }
+
+<!-- .playarea below Initialise a grid in which the game is to be played of a brown colour with a outline to symbolise the outer extremeties of the play area in which the sprites cant escape from -->
 .playArea {
     width:1200px;
     height:600px;
@@ -11,6 +14,8 @@ body {
     margin:30px auto 0;
     box-shadow:5px 5px 10px #444;
 }
+
+<!-- Initialise the size, shape and colour of the charecter sprites in .sprite and .sprite2  -->
 .sprite {
     width:50px;
     height:50px;
@@ -23,6 +28,8 @@ body {
     background:red;
     position:absolute;
 }
+
+<!-- Initialise food sprite, its size, colour and position  -->
 .food {
     width:50px;
     height:50px;
