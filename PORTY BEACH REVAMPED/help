@@ -1,0 +1,10 @@
+Helpful commands for terminal, especially if you need modules. Navigate to project directory first before executing.
+npm install, 
+npm install socket.io, 
+npm upgrade socket.io,
+npm start,
+
+if hosting the server locally you can:
+
+npx nodemon server.js ( recommended as it removes you needing to write out node server.js over and over again), use rs to restart it on the fly (might find it useful if game bugs out at any point during/after game screens)
+node server.js
