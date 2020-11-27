@@ -1,7 +1,9 @@
-
+let TEAM;
 
 var socket= io();
-    socket.on('message',(text) => console.log(text));
+    socket.on('teamID',(data) =>{
+              TEAM = data;
+});
 
 
 const room1 = document.getElementById('room1');
@@ -23,12 +25,10 @@ function createGame(){
     init();
 }
 
-
 let gameAlready = true;
 let tempx;
 let tempy;
 let points = 0;
-let points2 = 0;
 
 function game() {
     gameAlready = false;
@@ -89,7 +89,7 @@ function game() {
     function keyDown(e) {
         if (e.keyCode === 39) {
             key.right = true;
-            socket.emit('key-right',key.right);
+
         } else if (e.keyCode === 37) {
             key.left = true;
         }
@@ -145,8 +145,7 @@ function game() {
 
 
     }
-    socket.on('keyR',(data) =>
-    {key.right = data});
+
 
     function movesprite1() {
         if (key.right === true) {
@@ -177,9 +176,13 @@ function game() {
 
         if (sprite.style.left == foodSprite.style.left && sprite.style.top == foodSprite.style.top){
             points += 1;
-            document.getElementById("score").innerHTML = "player 1 has " +points+ " points";
+            console.log(TEAM);
+            document.getElementById("score").innerHTML = "Team " +TEAM+" has " +points+ " points";
             if (points == 5){
-                document.getElementById("score").innerHTML = "player 1 has won";
+                socket.emit('winner1');
+
+
+
                 setTimeout(init, 5000);
             }
 
@@ -225,10 +228,17 @@ function game() {
         sprite2.style.top = spritePos2.y + 'px';
 
         if (sprite2.style.left == foodSprite.style.left && sprite2.style.top == foodSprite.style.top){
-            points2 += 1;
-            document.getElementById("score2").innerHTML = "player 2 has " +points2+ " points";
-            if (points2 == 5){
-                document.getElementById("score2").innerHTML = "player 2 has won";
+            points += 1;
+            document.getElementById("score").innerHTML = "Team " +TEAM +" has " +points+ " points";
+
+
+
+
+
+            if (points == 5){
+                document.getElementById("score").innerHTML = "Team "+TEAM +" has won";
+                socket.emit('winner1');
+
                 setTimeout(init, 5000);
             }
 
@@ -290,11 +300,27 @@ function game() {
 
 
 }
+
+
+
 function init(){
     if (gameAlready === true) {
         game();
     }
-
+    else{location.reload()}
 }
+
+socket.on('winner1close', close);
+socket.on('winner2close', close);
+socket.on('full', fullGame);
+function close(){
+    location.reload();
+}
+
+function fullGame(){
+    alert("Servers are full, please try again later.");
+    setTimeout(close,2000);
+}
+
 
 

@@ -1,36 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <!-- Declares the title of the page -->
     <title>PortyBeach</title>
-    
-    <!-- link to our external styling sheet -->
     <link rel="stylesheet" href="style.css">
 
 </head>
-    
-<!-- body tag that includes instructions and useful information for the user  -->
 <body>
-    
-    <!-- Title and name of the game -->
     <h1> Porty Beach </h1>
-    
-    <!-- Below are two buttons to allow the user to enter either room 1 or room 2 -->
     <button id="room1">Join Room 1 </button>
     <button id="room2">Join Room 2 </button>
-    
-    <!-- Two statements about how many points each sprite has collected -->
-    <p id="score"> player 1 has no points </p>
-    <p id="score2"> player 2 has no points </p>
-    
-    <!-- Further instructions about which keys users can use to control the sprites -->
+    <p id="score"> Your team has no points </p>
+
     <p> Player 1 controls with arrow keys, player 2 with wasd</p>
 
 
-    <!-- Below <script> tags are used to embed a client side script, it points to external script file through the use of the src attribute  -->
+
     <script src="/socket.io/socket.io.js"></script>
+
     <script src="gclient.js"></script>
+
+
 
 
 </body>
